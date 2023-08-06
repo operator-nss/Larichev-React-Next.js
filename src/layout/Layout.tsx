@@ -3,6 +3,7 @@ import cn from 'classnames'
 import Header from "@/layout/Footer/Header";
 import Sidebar from "@/layout/Sidebar/Sidebar";
 import Footer from "@/layout/Header/Footer";
+import styles from './layout.module.scss'
 
 export interface ILayout {
   children: ReactNode
@@ -11,15 +12,13 @@ export interface ILayout {
 
 const Layout: FC<ILayout> = ({children}) => {
   return (
-    <div>
-      <Header/>
-      <div>
-        <Sidebar/>
-        <div>
-          {children}
-        </div>
+    <div className={styles.wrapper}>
+      <Header className={styles.header}/>
+      <Sidebar className={styles.sidebar}/>
+      <div className={styles.main}>
+        {children}
       </div>
-      <Footer/>
+      <Footer className={styles.footer}/>
     </div>
   );
 };
